@@ -83,3 +83,12 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+.idea
+*.iml
+local.properties
+build
+.gradle
+# Eclipse project files
+.project
+.settings/
+.classpath

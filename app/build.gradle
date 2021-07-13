@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.agiletch.darkmodetest"
+        minSdkVersion 29
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            debuggable true
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.20"
+    implementation 'androidx.core:core-ktx:1.6.0'
+
+    implementation "androidx.fragment:fragment-ktx:1.3.5"
+
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+
+    // LiveData - Kotlin extensions for 'livedata' artifact
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    // Lifecycle only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
+    // Lifecycle extensions
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"
+
+    //MDC
+    implementation 'com.google.android.material:material:1.4.0'
+
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    /// >>>> TESTING
+    //  Architecture Components core testing library
+    //  JUnit Rules
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    // AndroidX Test - Instrumented testing
+    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
+
+    // AndroidX Test - JVM testing
+    testImplementation "androidx.test.ext:junit-ktx:1.1.3"
+    testImplementation "androidx.test:core-ktx:1.4.0"
+    testImplementation "org.robolectric:robolectric:4.6.1"
+
+    // Other dependencies
+    // asserts
+    testImplementation "org.hamcrest:hamcrest-all:1.3"
+
+    /// >>>> EXTRA
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2'
+    testImplementation "org.mockito:mockito-core:3.6.28"
+    testImplementation "org.mockito:mockito-inline:3.6.28"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
+    // MOCK WEB SERVER
+    testImplementation 'com.squareup.okhttp:mockwebserver:2.7.5'
+    /// <<<<
+
+}
